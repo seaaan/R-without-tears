@@ -1,0 +1,13 @@
+Cell,Virus,Timepoint,Viability
+T,HIV,Before,95
+Monocyte,HIV,Before,97
+B,HIV,Before,92
+T,HIV,After,12
+Monocyte,HIV,After,45
+B,HIV,After,83
+T,EBV,Before,98
+Monocyte,EBV,Before,95
+B,EBV,Before,93
+T,EBV,After,90
+Monocyte,EBV,After,88
+B,EBV,After,17
