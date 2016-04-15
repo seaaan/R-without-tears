@@ -1,4 +1,4 @@
-# Lesson 1: Getting the rows and columns you want
+# Lesson 2: Getting the rows and columns you want
 
 # We are going to use some functions that don't come with R. They are part of a 
 # "package" called "dplyr". You need to install the package: 
@@ -24,6 +24,8 @@ select(zika, Date, DaySinceInfection, ViralLoad)
 # You can store the result in a new variable and then use the functions from
 # last time to view the results
 datesAndViralLoads <- select(zika, Date, DaySinceInfection, ViralLoad)
+
+datesAndViralLoads
 
 # Try selecting just the columns ViralLoad and Method and storing the result in 
 # a new variable: 
