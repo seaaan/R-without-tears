@@ -66,10 +66,30 @@ filter(zika, ViralLoad != 0)
 filter(zika, ViralLoad != 0, DaySinceInfection == 1)
 
 
+# Useful comparison functions -------------------------------------------------
+# less than
+2 < 1
+2 <= 2
 
+# greater than
+1 > 2
+3 >= 2
 
+# equals
+1 == 1
+2 == 1
+"hello" == "hello"
 
+# not equals
+1 != 1
+2 != 1
+"hello" != "goodbye"
 
+# is contained in
+2 %in% c(2, 4, 8)
+3 %in% c(2, 4, 8)
+"Sean" %in% c("Thomas", "Arnold", "Weintraub")
+"Sean" %in% c("Sean", "Thomas", "Arnold", "Weintraub")
 
 # Homework --------------------------------------------------------------------
 # Use filter and select to answer these questions. Remember to run 
