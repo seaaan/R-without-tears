@@ -126,6 +126,35 @@ zika %>%
    summarize(MeanViralLoad = mean(ViralLoad)) %>% 
    View()
 
+# Useful functions with summarize() -------------------------------------------
+# Averages and and other numerical summaries
+# mean(), median(), min(), max(), sd(), sum()
+zika %>% 
+   group_by(SampleSource) %>% 
+   summarize(
+      Min = min(ViralLoad),
+      Mean = mean(ViralLoad),
+      Median = median(ViralLoad),
+      Max = max(ViralLoad),
+      StandardDeviation = sd(ViralLoad),
+      Sum = sum(ViralLoad)
+   )
+
+# Row counting
+# n() = number of rows 
+# sum(<conditional expression>) = number of rows where the expression is true
+# mean(<conditional expression>) = fraction of rows where the expression is true
+# length(unique()) = number of unique values 
+
+zika %>% 
+   group_by(SampleSource) %>% 
+   summarize(
+      NumberOfSamples = n(),
+      NoViralLoadCount = sum(ViralLoad == 0),
+      NoViralLoadFrac = mean(ViralLoad == 0),
+      NumberOfAnimals = length(unique(AnimalId))
+   )
+
 # Homework --------------------------------------------------------------------
 # Use %>%, summarize, and group_by to answer these questions. Remember to run 
 library(dplyr)
