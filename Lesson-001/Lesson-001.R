@@ -31,7 +31,7 @@
 # example files in the Lesson-001/data/ folder. 
 
 # Run this code: 
-data <- read.csv("Lesson-001/data/example-data.csv")
+myData <- read.csv("Lesson-001/data/example-data.csv")
 
 # Sooo... nothing happens?
 # Actually, this line does several invisible things: 
@@ -39,10 +39,11 @@ data <- read.csv("Lesson-001/data/example-data.csv")
 #  1. "read.csv()" opens the file in R and turns the file into a "data frame", 
 #     which is like an Excel worksheet.
 
-#  2. "<-" stores the data frame in a variable called "data" (but you could name
-#     it whatever you want).
+#  2. "<-" stores the data frame in a variable called "myData" (but you could name
+#     it whatever you want). It is best to avoid naming your data "data" since "data" is used as an argument in many functions so
+#     it can lead to confusion for you and R. Use names that will make sense to you and other humans when you look at it in 6 months.
 
-#  3. "<-" makes "data" available in the global environment, which is the place 
+#  3. "<-" makes "myData" available in the global environment, which is the place 
 #     where all the open files and objects you have live. 
 
 # Main point: the file is open and ready for use. 
@@ -51,42 +52,42 @@ data <- read.csv("Lesson-001/data/example-data.csv")
 # There are many ways to view data in R. Run the code below and answer the 
 # questions
 
-data
+myData
 # What does this line do? 
 
 
 
-View(data)
+View(myData)
 # What does this line do? 
 
 
 
-summary(data)
+summary(myData)
 # What does this line do? 
 
 
 
-str(data)
+str(myData)
 # What does this line do? 
 
 
 
-# What happens when you click on the table icon next to the entry for "data" in
+# What happens when you click on the table icon next to the entry for "myData" in
 # the Environment pane? 
 
 
 
-data$Viability
+myData$Viability
 # What does this line do? 
 
 
 
-head(data)
+head(myData)
 # What does this line do? 
 
 
 
-tail(data)
+tail(myData)
 # What does this line do? 
 
 
