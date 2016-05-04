@@ -1,9 +1,12 @@
 # Lesson 2: Getting the rows and columns you want
 
 # We are going to use some functions that don't come with R. They are part of a 
-# "package" called "dplyr". You need to install the package: 
+# "package" called "dplyr". A package is a collection of functions (tools to do things with data) that someone made for other people to use in R.
+# Any function that does not require a package is said to be available in "base" R.
+#  You need to install the package: 
 install.packages("dplyr")
 
+# Don't be afraid of all the stuff that happens in your console, it is just the package installing itself.
 # You only need to install it once. But you need to load it every session where
 # you use it, with this command: 
 library(dplyr)
