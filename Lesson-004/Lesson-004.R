@@ -10,10 +10,15 @@ library(dplyr)
 # time. Viral loads are missing for many animals at many timepoints. 
 
 # Changing columns with mutate -------------------------------------------------
-# Sometimes your data set doesn't have the information in the form you want.
+# Sometimes your data set doesn't have the information in the form you want, or you want to add more information to the data frame.
+#You can use the mutate function to mutate your data in a couple of ways
+# 1) to change the data in an existing column
+# 2) to add new column to the existing data frame
+
 #        mutate(<data frame>, <ColumnName> = <function of columns>)
 
-# For example, the data are provided as log10 of the viral loads, but it might
+# Changing existing data:
+# The data are provided as log10 of the viral loads, but it might
 # be easier to interpret untransformed values.  
 siv %>% 
    mutate(Day0 = 10^Day0) %>% 
@@ -39,8 +44,8 @@ siv %>%
 
 # Creating new columns with mutate ---------------------------------------------
 # Using the same function, you can create a new column rather than changing an 
-# existing column. It's just like changing a column, but you provide a name 
-# for the result that isn't already a column in the data frame. 
+# existing column. It's just like changing a column, but you get to make up a name for
+# the new column that you're adding. Let's call the new column "Day0Untransformed". 
 siv %>% 
    mutate(Day0Untransformed = 10^Day0) %>% 
    View() # scroll all the way to the right 
@@ -72,7 +77,7 @@ siv %>%
 # First, calculate the replacement value. As an example, we'll replace all of 
 # the NA viral loads on Day3 with the mean of non-missing viral loads.  
 
-# What's the average non-missing viral load on Day3? 
+# What's the average non-missing viral load on Day3 and what is na.rm doing?
 siv %>% 
    summarize(AvgDay3 = mean(Day3, na.rm = TRUE)) 
 
@@ -91,6 +96,8 @@ siv %>%
 
    # Digression on ifelse() ----------------------------------------------------
    # ifelse(<conditional>, <result if true>, <result if false>)
+   # In English: "If this statement is true, give this result, otherwise, give this other result."
+   
    ifelse(1 > 2, "one is greater than two", "one is less than two")
    
    ifelse("a" == "a", "they're the same!", "they're different")
@@ -134,7 +141,8 @@ siv %>%
 # Use mutate, ifelse, and whatever else you need to answer these questions. 
 # Remember to run 
 library(dplyr)
-# before you start
+# before you start to load the dplyr package, which contains most of the functions we've learned
+# including mutate.
 
 # 1. Create a new column called "SuperDay3" that consists of the values in Day3
 #    multipled by 10. Don't worry about NAs. 
