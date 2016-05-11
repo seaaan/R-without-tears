@@ -1,9 +1,21 @@
 Potential lesson outline
-Lesson01: This should have a thing about getting help, doing ?function, stackoverflow, etc etc.
-lesson02
-lesson03
-lesson04
-lesson05: Data structures and types: there is probably a section in the r for beginners book about this that it wouldn't hurt too much to read.
+
+Lesson 1:   read data, view data, this should have a thing about getting help, 
+            doing ?function, stackoverflow, etc etc.
+Lesson 2:   select, filter
+Lesson 3:   pipe, summarise/group_by
+Lesson 4:   mutate, dealing with NAs (?)
+
+ggplot2
+getting help 
+R markdown
+git
+file paths
+writing functions
+
+
+Data structures and types (Lesson 5?) ------------------------------------------
+there is probably a section in the r for beginners book about this that it wouldn't hurt too much to read.
 	vector vs dataframe vs matrix
 		What makes a dataframe special? You can have different data types in it.
 			Like what kind of types? And what's the point of different data types anyway? (foreshadowing plotting and other stuff)
@@ -12,7 +24,9 @@ lesson05: Data structures and types: there is probably a section in the r for be
 				What if you want it to be a different type? (as.whatever), "coercing"
 				Maybe a practice changing from one type to another and checking str() to see that you changed it.
 					It would be good to show different functionality with different types. Maybe have something as character, do levels(thatcolumn), then switch to factor and check the levels again.
-Lesson06: Data shape
+	Also function, arguments, return value
+
+Data shape (Lesson 6? Or after ggplot?) ----------------------------------------
 	Data comes in different shapes: examples are flowjo output, plate shaped output etc
 		Why does it matter what shape your data is in? Answer: analysis programs can only read it if it is in the format they expect.
 		Two main shapes are wide and long. 
