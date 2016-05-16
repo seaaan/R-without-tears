@@ -6,7 +6,6 @@ library(dplyr)
 # "cervix": 
 
 
-
 # The data consists of the number different types of immune cells isolated from
 # the cervix when using two different sampling tools. 
 
@@ -87,4 +86,10 @@ cervix %>%
 library(dplyr)
 # before you start
 
-# 1. 
+# 1. For each Nairobi cytobrush sample, what percent of T cells are CD4+ T cells? 
+
+
+# 2. For Chicago biopsy samples, what is the average percent of the ImmuneCells that are macrophages?
+
+
+# 3. In which Seattle samples are there more CD4 T cells than CD8 T cells?
