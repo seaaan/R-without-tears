@@ -5,7 +5,6 @@ library(dplyr)
 # Load the file Lesson-004/data/cervix.csv and store it in a variable called 
 # "cervix": 
 
-cervix<-read.csv("Lesson-004/data/cervix.csv")
 
 # The data consists of the number different types of immune cells isolated from
 # the cervix when using two different sampling tools. 
