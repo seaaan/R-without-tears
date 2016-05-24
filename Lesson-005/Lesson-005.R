@@ -1,4 +1,4 @@
-# Lesson X: Making graphs
+# Lesson 5: Making graphs
 
 # We're going to use a package called ggplot2, so we need to install it: 
 install.packages("ggplot2")
