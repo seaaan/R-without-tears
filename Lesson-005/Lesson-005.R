@@ -198,7 +198,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
 # We'll use a new data set for the homework. They studied the effect of 
 # cigarette smoke on immune cell (macrophage) function. http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155791
 # In the subset of the data we'll look at, they studied caspase-3 activity in
-# the cells over time. 
+# the cells over time. The file is "Lesson-005/data/cigarettes.csv"
 
 # 1. Make a plot of symbols with caspase activity on the y-axis and hour on the
 #    x-axis. 
