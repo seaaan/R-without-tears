@@ -86,10 +86,25 @@ cervix %>%
 library(dplyr)
 # before you start
 
-# 1. For each Nairobi cytobrush sample, what percent of T cells are CD4+ T cells? 
+# 1. For each Nairobi cytobrush sample, what percent of T cells are CD4+ T 
+#    cells? 
 
 
-# 2. For Chicago biopsy samples, what is the average percent of the ImmuneCells that are macrophages?
+
+
+# 2. For Chicago biopsy samples, what is the average percent of the ImmuneCells 
+#    that are macrophages?
+
+
 
 
 # 3. In which Seattle samples are there more CD4 T cells than CD8 T cells?
+
+
+
+
+# Reading assignment: https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html
+# The reading summarizes the dplyr package, which is the source of most of the
+# functions we've learned so far (select, filter, group_by, summarize, mutate).
+# Note: to run the example code, you need to install.packages("nycflights13") to
+# get the data used in the reading.
