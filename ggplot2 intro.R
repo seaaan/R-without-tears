@@ -194,4 +194,47 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
    scale_y_log10() + 
    facet_grid(AnimalId ~ SampleSource)
 
-# Homework
+# Homework ---------------------------------------------------------------------
+# We'll use a new data set for the homework. They studied the effect of 
+# cigarette smoke on immune cell (macrophage) function. http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155791
+# In the subset of the data we'll look at, they studied caspase-3 activity in
+# the cells over time. 
+
+# 1. Make a plot of symbols with caspase activity on the y-axis and hour on the
+#    x-axis. 
+
+
+
+# 2. Change the plot to map treatment to an aesthetic (color, shape, etc.).
+
+
+
+
+# 3. Change the plot to map sample to an aesthetic as well. 
+
+
+
+
+# 4. Change the plot to make separate subplots for each sample.
+
+
+
+
+# 5. Now we will change the data set. Use group_by and summarize to
+#    average the replicates at each time point, treatment, and sample,
+#    so for each sample, you have one measurement per time point and
+#    treatment. Save the summarized data in a new variable called 
+#    "summarized". The make the same graph as in #4 with summarized.
+
+
+
+
+# 6. Now add lines (connecting the same treatment) to the graph from #5. 
+
+
+
+
+# 7. Finally, try making subplots for the combination of sample and treatment.
+#    (So there will be six subplots: two for each sample, one per treatment.)
+
+
