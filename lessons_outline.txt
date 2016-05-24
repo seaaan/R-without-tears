@@ -4,7 +4,9 @@ Lesson 1:   read data, view data, this should have a thing about getting help,
             doing ?function, stackoverflow, etc etc.
 Lesson 2:   select, filter
 Lesson 3:   pipe, summarise/group_by
-Lesson 4:   mutate, dealing with NAs (?)
+Lesson 4:   mutate 
+Lesson 5:   ggplot2 introduction
+
 
 ggplot2
 getting help 
@@ -12,7 +14,7 @@ R markdown
 git
 file paths
 writing functions
-
+dealing with NAs (?)
 
 Data structures and types (Lesson 5?) ------------------------------------------
 there is probably a section in the r for beginners book about this that it wouldn't hurt too much to read.
