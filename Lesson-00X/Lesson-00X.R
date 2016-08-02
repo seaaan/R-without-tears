@@ -1,7 +1,7 @@
 # Lesson X: Bar graphs
 
 # ggplot2 has a variety of functionality for creating bar graphs, but
-# it doesn't always work like you expect. 
+# it doesn't always work like you might expect. 
 
 # data ------------------------------------------------------------------
 # For this lesson, we'll use data from http://dx.doi.org/10.5061/dryad.11vs5
