@@ -7,16 +7,16 @@ install.packages("ggplot2")
 library(ggplot2)
 library(dplyr)
 
-# To start exploring R's flexible and board graph-making facilities, we'll use 
+# To start exploring R's flexible and broad graph-making facilities, we'll use 
 # the zika dataset again. Load the Lesson-001/data/zika.csv file and store it 
 # in a variable called "zika":
 
 
 
 # There's one minor issue with this data set. The animals are identified with
-# numbers: 912116, 393422, and 826226. Our plots will sometimes do things we 
-# don't want, so we need to tell R to view the AnimalId column as text, rather
-# than as numbers, which is what this next line does: 
+# numbers: 912116, 393422, and 826226. R would try to plot these as though they
+# were numbers (e.g. as three points on a scale from 0 to 1 million). So, we 
+# we need to tell R to view the AnimalId column as text instead: 
 zika <- mutate(zika, AnimalId = as.character(AnimalId))
 
 # Setting up a graph -----------------------------------------------------------
@@ -28,7 +28,7 @@ zika <- mutate(zika, AnimalId = as.character(AnimalId))
 ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad))
 
 # This command tells ggplot what data you're using and what you want on the x 
-# and y axes. As you can see, it sets up the plot but doesn't actually show data
+# and y axes. As you can see, it sets up the plot but doesn't show the data.
 
 # The aes() function is used to map columns in your data to aesthetics on a 
 # plot. The x and y-axes are examples of aesthetics, as are color, size, and 
@@ -39,9 +39,9 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad))
 
 # Actually showing the data ----------------------------------------------------
 # ggplot2 is built around the idea of adding layers to the plot. So far, we have
-# the base layer, but no data showing. To show the data, we need to add a layer.
-# In this case, we'll add a "geom", which is a representation of data. Layers 
-# are added with the "+" function. 
+# the base layer, but no data, showing. To show the data, we need to add another
+# layer. In this case, we'll add a "geom", which is a representation of data. 
+# Layers are added with the "+" function. 
 
 # Try this: 
 ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
@@ -65,7 +65,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
    scale_y_log10()
 
 # Now the data are much more clear: viral load peaks highest and 
-# earliest in the blood, with later, lower peaks in the urine and mouth
+# earliest in the blood, with later, lower urine and oral peaks.
 
 # You still can't tell which animal is which, so try adding a mapping 
 # from AnimalId to shape. (Replace the "..." below.)
@@ -102,9 +102,8 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
    scale_y_log10() + 
    facet_wrap(~ SampleSource)
 
-# Now there is a separate graph for each type of sample, so we don't need to use
-# color to tell them apart anymore. We can use color for animal and drop the 
-# shapes. 
+# Now there is a separate graph for each type of sample, so we don't need color
+# to tell them apart anymore. We can use color for animal and drop the shapes. 
 ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
       color = AnimalId)) +
    geom_point() +
@@ -161,9 +160,9 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 
 # facet_wrap will always only make the graphs that have data and display them as
 # densely as possible. Sometimes you can make a nicer looking graph by using 
-# facet_grid instead, which always lays the graphs out in a grid and will 
-# include blank graphs if data is missing for a combination of variables. Here,
-# it makes a very nice version of the previous graph.
+# facet_grid instead, which lays the graphs out in a grid and will include blank 
+# graphs if data is missing for a combination of variables. Here, it makes a 
+# very nice version of the previous graph.
 ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
       color = SampleSource, shape = AnimalId)) +
    geom_point() +
