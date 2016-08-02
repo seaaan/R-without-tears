@@ -9,7 +9,7 @@
 # group_by, +, and so on. 
 
 # Syntax
-# Functions typically look like this:  functionName(..., ...), 
+# Functions typically look like this:  functionName(..., ...)
 # They can also look like this:        ... + ...
 
 # You "call" a function when you use it. A function "takes" "arguments", where
@@ -44,8 +44,8 @@
 
 
 # Data structures --------------------------------------------------------------
-# A data structure is a way of representing data. Different kinds of data can be
-# representing in different ways. 
+# A data structure is a tool for holding data. Different kinds of data can be
+# represented in different ways. 
 
 # Vectors
 # Vectors are the simplest form of data in R. They are simply a sequence of of
@@ -54,15 +54,16 @@
 # is a vector. You can also make vectors with the c() function: 
 c("hello", "I", "am", "a", "vector", "containing", "8", "elements")
 
-# Every element in a vector is the same type. We'll talk more about types below.
+# Every element in a vector is the same type. We'll talk more about types when
+# you're older.
 
 # Data frames
 # We have seen data frames before. They are two-dimensional, having rows and 
 # columns. They are square, with every column having the same number of rows. 
 zika <- read.csv("Lesson-001/data/zika.csv")
 
-# You can think of a data frame as a collection of vectors, with each column 
-# being a vector. 
+# You can think of a data frame as a collection of vectors (each column is a 
+# vector. 
 
 # Matrices
 # We haven't seen matrices before, but they're similar to data frames. They are
@@ -99,15 +100,46 @@ str(zika)
 sum(1:10)
 sum(c(TRUE, FALSE, TRUE, FALSE))
 sum(c("a", "b", "c"))
-# It would be good to show different functionality with different types. Maybe have something as character, do levels(thatcolumn), then switch to factor and check the levels again.
+
+# The whole point of types is, in fact, to tell functions what to do with the 
+# data and to tell R how to store it. This is Very Important for plotting.
+
+# How does mean() behave on each of the types of vectors above? 
 
 
-# character vs factor
-# Like what kind of types? And what's the point of different data types anyway? 
-# (foreshadowing plotting and other stuff)
 
 
-# "Coercing" from one type to another
+# Character vs. factor ---------------------------------------------------------
+characterVector <- c("dog", "dog", "cat", "cat", "horse", "cat", "dog", "mouse")
+factorVector <- factor(c("dog", "dog", "cat", "cat", "horse", "cat", "dog", "mouse"))
+
+str(characterVector)
+str(factorVector)
+levels(factorVector)
+
+# factors only expect new data to be one of the levels it already has
+c(characterVector, "pony")
+c(factorVector, "pony")
+
+# you can specify the order factors should be sorted by
+sort(characterVector)
+sort(factorVector)
+
+factorVectorFunnyOrder <- 
+   factor(c("dog", "dog", "cat", "cat", "horse", "cat", "dog", "mouse"),
+      levels = c("mouse", "horse", "cat", "dog"))
+
+sort(factorVectorFunnyOrder)
+
+
+# make this vector a factor with reverse alphabetical levels and then sort it
+c("is", "best", "sean" )
+
+
+
+
+
+# "Coercing" from one type to another ------------------------------------------
 # All elements of a vector or matrix need to be the same type. All elements of 
 # a single column of a data frame need to be the same type. Given mixed types,
 # R will automatically "coerce" all the values to be the same type, which is 
@@ -115,16 +147,63 @@ sum(c("a", "b", "c"))
 c(1, "a", TRUE) 
 # becomes character, because all the values can be represented as text
 
+str(c(1, "a", TRUE))
+
 # To do your own coercion, use the as.* functions
 as.character(1:10)
 as.logical(0:10)
 as.factor(1:10)
 
-# Maybe a practice changing from one type to another and checking str() to see that you changed it.
+# If you try to force something to be a type that doesn't make sense, you'll get
+# an NA (missing values) and a warning message
+as.numeric(c(1, "a", TRUE))
+
+# Which types can you convert the following vectors to without getting errors? 
+c("hello", "I'm", "a", "character", "vector")
+c(TRUE, FALSE, FALSE, TRUE, FALSE == TRUE, TRUE & TRUE)
+c(9.23, pi, 12E6, 839.8293, -7, -Inf)
 
 
 
 
-#    there is probably a section in the r for beginners book about this that it wouldn't hurt too much to read.
+# Homework ----------------------------------------------------------
+# 1. For each of the following function calls, write down: 
+#     a: the name of the function
+#     b: what the arguments are
+#     c: what the function returns
+   sum(1:10)
+   # a: 
+   # b: 
+   # c: 
+   as.numeric(c(1, "a", TRUE))
+   # a: 
+   # b: 
+   # c: 
+   summarize(zika, TotalViralLoad = sum(ViralLoad))
+   # a: 
+   # b: 
+   # c: 
+   2 > 5
+   # a: 
+   # b: 
+   # c: 
 
-# variables
+# 2. What are two examples of data structures? What are some differences between
+#    them? 
+   
+
+   
+# 3. What is the difference between numeric and integer types? 
+   
+   
+
+# 4. What is the difference between factor and character types? 
+   
+   
+
+# 5. What type will the following vector have?  
+c(14, 75, "dog", "horse", TRUE, 7, 10E6-17)
+#    Make it into numeric, factor, and logical types.
+
+
+
