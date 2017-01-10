@@ -193,6 +193,15 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
    scale_y_log10() + 
    facet_grid(AnimalId ~ SampleSource)
 
+# Resources for learning more: 
+# google essentially any thing you want to do 
+#     https://twitter.com/hadleywickham/status/317279035937923072
+#     he's the person who created ggplot2
+# https://www.dropbox.com/s/0lap7tr7zoryyjk/ggplot2-book.pdf
+# http://docs.ggplot2.org/current/
+# http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/
+# http://r4ds.had.co.nz/data-visualisation.html
+
 # Homework ---------------------------------------------------------------------
 # We'll use a new data set for the homework. They studied the effect of 
 # cigarette smoke on immune cell (macrophage) function. http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155791
