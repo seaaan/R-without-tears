@@ -94,7 +94,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 # ggplot2 really shines when it comes to separating your data out into subplots,
 # which is called "facetting". 
 
-# See, for example, this: 
+# This creates separate plots for each type of sample: 
 ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
       color = SampleSource, shape = AnimalId)) +
    geom_point() +
