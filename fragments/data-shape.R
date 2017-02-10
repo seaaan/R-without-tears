@@ -36,9 +36,23 @@
 #         ...
 
 # Comparison: 
-# Wide: Sometimes easier to look at with your eyeballs, but side scrolling sucks and we don't have a way to refer to "cell type" if we want to do some kind of operation on data related to each possible value (T, macro, neutro...) of a certain variable (cell type).
-# Long: Not easy easy to look at with eyeballs,  but there are lots of ways, probably better than just looking, to get summary information about the data. For example, to know all the possible values (cell types) you could say levels(Cell.Type), or do a summary by cell type, or filter by Cell.Type == "whatever".
-# Foreshadowing for ggplot: It is nice to be able to tell a plot function: vary the color/shape/facetting by "cell type", instead of saying "make T cells blue, Macros red, Neutros pink, etc.
+# - Wide: Sometimes easier to look at with your eyeballs, but side scrolling 
+#         sucks and we don't have a way to refer to "cell type" if we want to 
+#         do some kind of operation on each possible type (T, macro, neutro...).
+#         Instead, we have to do it separately for each column. 
+
+# - Long: Not easy easy to look at with eyeballs, but there are lots of ways, 
+#         probably better than just looking, to get summary information about 
+#         data. For example, to know all the possible values (cell types) you 
+#         could group_by(CellType) and then use summarise() or you could 
+#         filter(CellType == "whatever").
+
+# Tools and expectations: 
+# ggplot2, dplyr, and other related packages (the "tidyverse") expect data to be
+# in long ("tidy") form. For example, you tell ggplot2 to vary the color based 
+# on the column CellType, rather than telling it to make the values in the 
+# TCells column pink, the values in the Macrophages column blue, .... Being able
+# to use these packages is the biggest reason to use long form data.
 # 
 # OMG my data is in the wrong shape, curses be upon you flowjo!! What do I do?
 # This is usually when it is wide and you want long. In this case you can melt it into the right shape using the melt() function in the reshape2 package
