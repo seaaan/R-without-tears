@@ -1,5 +1,7 @@
 # Lesson 7: Data shape
 
+# Background information -------------------------------------------------------
+
 # Data comes in different shapes: 
 # - Flowjo output, where each column has information about a cell type
 # - Plate reader output, where the data is shaped like a plate
@@ -47,7 +49,7 @@
 #         could group_by(CellType) and then use summarise() or you could 
 #         filter(CellType == "whatever").
 
-# Tools and expectations: 
+# Why you should prefer long ---------------------------------------------------
 # ggplot2, dplyr, and other related packages (the "tidyverse") expect data to be
 # in long ("tidy") form. For example, you tell ggplot2 to vary the color based 
 # on the column CellType, rather than telling it to make the values in the 
@@ -55,14 +57,18 @@
 # to use these packages is the biggest reason to use long form data.
 # 
 # OMG my data is in the wrong shape, curses be upon you flowjo!! What do I do?
-# This is usually when it is wide and you want long. In this case you can melt it into the right shape using the melt() function in the reshape2 package
-# Do you remember how to install/load a package? Do it.
-# Let's look at ?melt  Obrudder, click on the version for data frames
-# 
-# This is a good tutorial: http://seananderson.ca/2013/10/19/reshape.html
-# Or maybe this one: http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/
-# There are a lot.
-# Once you figure it out, write notes for yourself in a way that makes sense for you. Here is what I wrote for myself:
+
+# Wide to long ----------------------------------------------------------------- 
+# To convert your data from wide to long, you can use gather() from the tidyr
+# package. 
+
+# Do you remember how to install/load a package? Install and load tidyr.
+
+
+
+# Let's look at ?gather. Oh brother. 
+# Once you figure it out, write notes for yourself in a way that makes sense to 
+# you. Here is what I wrote for myself:
 # 
 # melt:
 # 
