@@ -58,7 +58,7 @@
 # 
 # OMG my data is in the wrong shape, curses be upon you flowjo!! What do I do?
 
-# Wide to long ----------------------------------------------------------------- 
+# Tidying your data (Wide to long) --------------------------------------------- 
 # To convert your data from wide to long, you can use gather() from the tidyr
 # package. 
 
@@ -67,52 +67,55 @@
 
 
 # Let's look at ?gather. Oh brother. 
-# Once you figure it out, write notes for yourself in a way that makes sense to 
-# you. Here is what I wrote for myself:
-# 
-# melt:
-# 
-# id.vars= is non-measured sample information like brush#, method, sample name
-# 
-# variable.name = the name of the column holding the different things you measured, like cell type. Before melting there is one column for each.
-# 
-# value.names = the thing you measured, like count
-# 
-# measure.vars = the values that you measured. Don't really need to use this if you have numbers for the values. use it if the values that you want to melt are strings. 
-# 
-# the arguments need to be in quotes!!
-# 
-# EXAMPLE
-# melted<-melt(summaryOnly,
-# id.vars=c("Probe.ID","TargetID","ENTREZ_GENE_ID"),
-# variable.name="day.dose",value.name="UpDownFalse")
-# 
-# EXAMPLE using measure.vars
-# 
-# 
-# original df: "female"
-# 
-# Female Female.1 Female.2
-# 1     Mary     Lisa Jennifer
-# 2    Linda     Mary      Amy
-# 3 Patricia    Susan  Melissa
-# 4    Susan    Karen Michelle
-# 5  Deborah Kimberly Kimberly
-# 6  Barbara Patricia     Lisa
-# 
-# want all the names in one column
-# 
-# meltFemale<-melt(female, measure.vars=c("Female","Female.1","Female.2")
-# 
-# variable    value
-# 1   Female     Mary
-# 2   Female    Linda
-# 3   Female Patricia
-# 4   Female    Susan
-# 5   Female  Deborah
-# 6   Female  Barbara
-# 
-# further down "variable" is Female.1 or Female.2
+
+#  key         value
+# ----------------------------------
+#  word        dictionary definition
+#  name        number in phone book
+#  CellType    Counts
+
+# Examples: 
+
+# Select the columns you want to be gathered
+# gather(data, key = CellType, value = Count, TCells, Macrophages, Neutrophils)
+
+# Select the columns you DON'T want to be gathered
+# gather(data, key = CellType, value = Count, -Sample, -Treatment)
+
+# New data set from http://datadryad.org/resource/doi:10.5061/dryad.g91p3
+# Concentrations in pg/mL of 12 cytokines from people with tubercular 
+# lymphadenitis (lymph node inflammation cause by TB infection), pulmonary
+# tuberculosis, or no tuberculosis
+
+# The file is in "Lesson-007/data/tb.csv"
+
+# Read in the file and look at it. 
+
+
+
+
+# Now reshape the data into tidy form by using "gather"
+
+
+
+
+# Now practice your ggplotting by making a plot to get an overview of the data
+
+
+
+
+# Try making a ggplot of the untidy data. What is easier and what is harder?
+
+
+
+
+
+# Untidying your data -----------------------------------------------------
+# Examples
+# spread(data, key = CellType, value = Counts)
+
+# Try to convert your tidied tb data back into its initial form
+
 
 
 
