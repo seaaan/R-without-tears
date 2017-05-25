@@ -7,15 +7,16 @@
 # - Plate reader output, where the data is shaped like a plate
 # - Other instrument output, seemingly completely random and without reason
 
-# Why does it matter what shape your data is in? 
+# Main data shapes: wide and long 
 # As an example, we'll look at an experiment where we used several treatments on
-# a bunch of samples and then measured the number of cells of a variety of types
-# in each sample. 
+# a bunch of samples and then measured the number of T cells, macrophages, and
+# neutrophils in each sample. 
+#
 # There are two main shapes this data can take, wide and long:  
 # - Wide: This is how FlowJo makes tables. There is one column indicating what 
-#         the sample is, one for what the treatment is, and then an individual 
-#         column for each cell type containing the counts of that cell type. 
-#         There will be one row per sample and treatment.
+#         the sample is, one for what the treatment is, and then one column of 
+#         counts for each cell. There is one row per combination of sample and 
+#         treatment.
 #
 #         Sample     Treatment      TCells   Macrophages Neutrophils
 #         A          Ctrl           30029    94832       120942
@@ -25,10 +26,10 @@
 #         ...
 #
 # - Long: Long data has a single column per variable. In our example, this means
-#         that we would have the same two columns for the sample and treatment.
-#         Then we would have a column called "CellType" and a column called 
-#         "Counts". This means that there will be multiple rows for each sample
-#         and treatment, one for each cell type. 
+#         that we have the same two columns for the sample and treatment. Then
+#         we have a column called "CellType" and a column called "Counts". 
+#         This means that there are multiple rows for each sample and treatment,
+#         Specifically, one for each cell type. 
 #
 #         Sample     Treatment      CellType    Counts
 #         A          Ctrl           TCells      30029
@@ -38,16 +39,13 @@
 #         ...
 
 # Comparison: 
-# - Wide: Sometimes easier to look at with your eyeballs, but side scrolling 
-#         sucks and we don't have a way to refer to "cell type" if we want to 
-#         do some kind of operation on each possible type (T, macro, neutro...).
-#         Instead, we have to do it separately for each column. 
+# - Wide: Can be easier to look at and more convenient for data entry. It's 
+#         harder to perform an operation on all of the count data (such as doing
+#         a log10-transformation). Instead, we have to do it separately for each 
+#         column. 
 
-# - Long: Not easy easy to look at with eyeballs, but there are lots of ways, 
-#         probably better than just looking, to get summary information about 
-#         data. For example, to know all the possible values (cell types) you 
-#         could group_by(CellType) and then use summarise() or you could 
-#         filter(CellType == "whatever").
+# - Long: Not as easy to look at, but much easier to perform operations on. For 
+#         example, you can group_by(CellType) and then use summarise().
 
 # Why you should prefer long ---------------------------------------------------
 # ggplot2, dplyr, and other related packages (the "tidyverse") expect data to be
@@ -66,7 +64,7 @@
 
 
 
-# Let's look at ?gather. Oh brother. 
+# Let's look at ?gather. Oh brother. key? value???
 
 #  key         value
 # ----------------------------------
@@ -89,7 +87,7 @@
 
 # The file is in "Lesson-007/data/tb.csv"
 
-# Read in the file and look at it. 
+# Read in the file and look at it. What shape is it in?
 
 
 
@@ -111,6 +109,13 @@
 
 
 # Untidying your data -----------------------------------------------------
+# Sometimes wide-shaped data is necessary. For example, if you want to determine
+# the correlation of two different levels of one variable (number of T cells 
+# vs number of neutrophils), you need a column for each. 
+
+# To convert from long form to wide form, tidyr has the function spread(), which
+# does the exact opposite of gather(). 
+
 # Examples
 # spread(data, key = CellType, value = Counts)
 
@@ -123,4 +128,35 @@
 # Homework --------------------------------------------------------------------
 
 # 1. Read this article: http://vita.had.co.nz/papers/tidy-data.pdf
+
+
+
+
+# 2. The zika data is tidy. Load the data and convert it to wide form so that 
+#    you have a column for each sample type containing its copies vRNA. 
+
+
+
+
+# 3. Notice that many of the values are NA (missing). This happens when there 
+#    isn't a value for all of the sample types at the same time. For example,
+#    many more blood plasma measurements were taken than measurements of the
+#    other sample types. In this case, it's also in part because there are two
+#    different types of units: copies vRNA / ml and copies vRNA / sample, as 
+#    shown in the Units column. Try removing that column from the tidy data
+#    and then converting it to wide form again and see how it changes. 
+
+
+
+
+# 4. Load some of your own data. Determine whether it is wide or long/tidy. Now
+#    convert it to the other shape. Make some plots of the data in each form to
+#    see what's easier and harder. 
+#    If you're having trouble loading your data, do this: open the file in 
+#    Excel, save as CSV, and put the CSV file in Lesson-007/data. Now you should
+#    be able to do read.csv("Lesson-007/data/your-file-name.csv"). If that 
+#    doesn't work, try running read.csv(file.choose()), which will pop up a 
+#    window letting you choose the file to load. Or try File > Import dataset.
+
+
 
