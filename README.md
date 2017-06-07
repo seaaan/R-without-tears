@@ -6,10 +6,10 @@ The lessons omit much of what is typical in introductory R courses, such as even
 
 Course overview: 
 
-Lesson 1:   introduction, read data, view data
-Lesson 2:   `dplyr`: select, filter
-Lesson 3:   `dplyr`: pipe, summarise/group_by
-Lesson 4:   `dplyr`: mutate 
-Lesson 5:   `ggplot2`: introduction
-Lesson 6:   `ggplot2`: continued
-Lesson 7:   data shape and tidy data
+* Lesson 1:   introduction, read data, view data
+* Lesson 2:   `dplyr`: select, filter
+* Lesson 3:   `dplyr`: pipe, summarise/group_by
+* Lesson 4:   `dplyr`: mutate 
+* Lesson 5:   `ggplot2`: introduction
+* Lesson 6:   `ggplot2`: continued
+* Lesson 7:   `tidyr`:data shape and tidy data
