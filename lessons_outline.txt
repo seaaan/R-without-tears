@@ -1,16 +1,7 @@
-Potential lesson outline
-
-Lesson 1:   read data, view data, this should have a thing about getting help, 
-            doing ?function, stackoverflow, etc etc.
-Lesson 2:   select, filter
-Lesson 3:   pipe, summarise/group_by
-Lesson 4:   mutate 
-Lesson 5:   ggplot2 introduction
-Lesson 6:   ggplot2 continued
-Lesson 7:   data shape and tidy data
+Lesson ideas
 
 normalizing to control / subtracting background
-getting help 
+getting help: ?function, stackoverflow, 
 R markdown
 git/github
 file paths/RStudio projects
