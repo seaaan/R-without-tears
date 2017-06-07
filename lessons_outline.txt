@@ -7,11 +7,13 @@ Lesson 3:   pipe, summarise/group_by
 Lesson 4:   mutate 
 Lesson 5:   ggplot2 introduction
 Lesson 6:   ggplot2 continued
+Lesson 7:   data shape and tidy data
 
+normalizing to control / subtracting background
 getting help 
 R markdown
-git
-file paths
+git/github
+file paths/RStudio projects
 writing functions
-dealing with NAs (?)
-
+dealing with NAs 
+translating dplyr to base 
