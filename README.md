@@ -12,4 +12,4 @@ Course overview:
 * Lesson 4:   `dplyr`: mutate 
 * Lesson 5:   `ggplot2`: introduction
 * Lesson 6:   `ggplot2`: continued
-* Lesson 7:   `tidyr`:data shape and tidy data
+* Lesson 7:   `tidyr`: data shape and tidy data
