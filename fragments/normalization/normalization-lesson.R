@@ -57,14 +57,9 @@
 
 
 # Merge the data sets: 
-combined <- inner_join(stimmed, controls)
-# inner_join(<data1>, <data2>, by = NULL)
-#     <data1> is the first data set
-#     <data2> is the second data set
-#     <by> specifies which columns to match
-#           We left it out, so it matches all of the columns with the same names
-#           You can specify which columns to match by if you only want to do
-#              specific columns. See ?inner_join
+# Use an inner_join to combine the two files: 
+
+
 
 # Now create a new column, BackgroundSubtractedIFNg, by subtracting the 
 # appropriate columns in the combined data: 
@@ -128,17 +123,10 @@ combined <- inner_join(stimmed, controls)
 
 
 
-# Now revists your plots and see what you learn by looking at the percent
+# Now revisit your plots and see what you learn by looking at the percent
 # of unvaccinated instead: 
 
 
-
-
-# TODO ~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$
-
-# need examples of more complicated merges (e.g. specifying by)
-# also need to consider non-inner joins.
-# note that the first example could be done with a spread instead
 
 
 
