@@ -1,4 +1,4 @@
-# Lesson ???: Normalization
+# Lesson 009: Normalization
 
 # Introduction -------------------------------------------------------
 # Normalization, such as background subtraction, fold change, and percent of 
@@ -11,7 +11,7 @@
 # production as measured by ELISA after stimulation with control or with 
 # mycobacterial antigens ("ESAT").
 
-# The file is called "Lesson-???/data/cows.csv"
+# The file is called "Lesson-009/data/cows.csv"
 
 # Load the data. We will also use dplyr and ggplot2, so load those too: 
 

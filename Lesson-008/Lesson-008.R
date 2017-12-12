@@ -1,4 +1,4 @@
-# Lesson ???: Combining multiple files
+# Lesson 008: Combining multiple files
 
 # Introduction -------------------------------------------------------
 # Data from a single experiment is often stored in multiple files. For example,
@@ -11,7 +11,7 @@
 # The data come from an RNA microarray experiment. The amount of RNA present was
 # determined for thousands of probes (1-2 probes per gene). The difference 
 # between treated and control samples was determined for each probe. The data is
-# stored in "Lesson-???/data/expression.csv". 
+# stored in "Lesson-008/data/expression.csv". 
 
 # Load the data. We will also use dplyr and ggplot2, so load those too: 
 
@@ -25,7 +25,7 @@
 
 # Each probe is identified with a number, but that number doesn't easily tell
 # us what gene was measured. The identity of the probes is stored in a separate
-# file, "Lesson-???/data/genes.csv". Load and look at that file: 
+# file, "Lesson-008/data/genes.csv". Load and look at that file: 
 
 
 
@@ -66,7 +66,7 @@ combined <- inner_join(data, genes)
 
 # Specifying matching columns --------------------------------------------------
 # As you can see, not every probe listed in the data has a gene name listed in
-# the key. Lucky you, you also have "Lesson-???/data/complete-genes.csv". Load
+# the key. Lucky you, you also have "Lesson-008/data/complete-genes.csv". Load
 # that file and merge it with the data: 
 
 
