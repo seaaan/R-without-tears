@@ -63,13 +63,34 @@ combined <- inner_join(data, genes)
 
 
 
-# TODO ~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$~!@$
 
-# need examples of more complicated merges (e.g. specifying by)
-# note that the first example could be done with a spread instead
-
-
-
+# Specifying matching columns --------------------------------------------------
+# As you can see, not every probe listed in the data has a gene name listed in
+# the key. Lucky you, you also have "Lesson-???/data/complete-genes.csv". Load
+# that file and merge it with the data: 
 
 
-# Reading: http://r4ds.had.co.nz/relational-data.html
+
+
+
+# When the two data sets don't share a common name, as in this case, you need
+# to tell it which columns match each other using the "by" argument. 
+# inner_join(..., by = c("column name in data1" = "column name in data2", ...))
+# You can specify as many columns as you need to with by.
+
+# Try the join again, specifying which columns to match: 
+
+
+
+
+
+# Homework --------------------------------------------------------------------
+
+# 1. Reading: http://r4ds.had.co.nz/relational-data.html
+
+# 2. Load files hw1, hw2, and hw3. Combine all of them into a single file. Keep
+#    an eye on the column names! You should have 108 rows and 8 columns when 
+#    you're done. 
+
+
+
