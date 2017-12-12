@@ -25,7 +25,7 @@ zika <- mutate(zika, AnimalId = as.character(AnimalId))
 #        ggplot(<data frame>, aes(x = <ColumnName>, y = <ColumnName>, ...))
 
 # For example, run this: 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad))
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad))
 
 # This command tells ggplot what data you're using and what you want on the x 
 # and y axes. As you can see, it sets up the plot but doesn't show the data.
@@ -44,12 +44,12 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad))
 # Layers are added with the "+" function. 
 
 # Try this: 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) +
    geom_point()
 
 # Now all the data are shown. Clearly, there are a few very high values that 
 # make it hard to see the rest of the data, so we'll add a log transform: 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) +
    geom_point() +
    scale_y_log10()
 
@@ -59,7 +59,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
 
 # First, let's add a mapping from the type of sample to color, so that the 
 # points will be colored by sample type.
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, 
       color = SampleSource)) +
    geom_point() +
    scale_y_log10()
@@ -69,7 +69,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 
 # You still can't tell which animal is which, so try adding a mapping 
 # from AnimalId to shape. (Replace the "..." below.)
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, 
       color = SampleSource, ...)) +
    geom_point() +
    scale_y_log10()
@@ -77,14 +77,14 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 # x, y, color, and shape are probably the most common aesthetics. But there
 # are others, such as size, which is illustrated below in what is probably
 # an unwise choice.
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, 
       color = SampleSource, size = AnimalId)) +
    geom_point() +
    scale_y_log10()
 
 # Another way to enhance this graph would be to add lines connecting the points, 
 # which we do with a geom_line() layer.
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, 
       color = SampleSource, shape = AnimalId)) +
    geom_point() +
    geom_line() +
@@ -95,7 +95,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 # which is called "facetting". 
 
 # This creates separate plots for each type of sample: 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad,
       color = SampleSource, shape = AnimalId)) +
    geom_point() +
    geom_line() +
@@ -104,7 +104,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 
 # Now there is a separate graph for each type of sample, so we don't need color
 # to tell them apart anymore. We can use color for animal and drop the shapes. 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad,
       color = AnimalId)) +
    geom_point() +
    geom_line() +
@@ -123,7 +123,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 # Sometimes different subgraphs have values of quite different sizes. In this
 # case, it can be nice to have different scales for each graph. You can do that
 # by including an extra bit of code when you add the facet_wrap layer, as below:
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad,
       color = AnimalId)) +
    geom_point() +
    geom_line() +
@@ -136,11 +136,11 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 
 # Sometimes it can be interesting to play around with facetting by different 
 # variables to see what you can learn. For example: 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, 
       color = SampleSource, shape = AnimalId)) +
    geom_point() +
    scale_y_log10() + 
-   facet_wrap(~ DaySinceInfection)
+   facet_wrap(~ DaysPostInfection)
 
 # This is a little silly, but if you change the x-axis to AnimalId, you can 
 # easily compare the disease course of each animal on each day. 
@@ -148,11 +148,11 @@ ggplot(zika, aes(x = AnimalId, y = ViralLoad,
       color = SampleSource, shape = AnimalId)) +
    geom_point() +
    scale_y_log10() + 
-   facet_wrap(~ DaySinceInfection)
+   facet_wrap(~ DaysPostInfection)
 
 # Facetting can also be done by more than one variable by adding additional 
 # columns with "+". Here we make separate graphs for each sample and animal.
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, 
      color = SampleSource, shape = AnimalId)) +
    geom_point() +
    scale_y_log10() + 
@@ -163,7 +163,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 # facet_grid instead, which lays the graphs out in a grid and will include blank 
 # graphs if data is missing for a combination of variables. Here, it makes a 
 # very nice version of the previous graph.
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, 
       color = SampleSource, shape = AnimalId)) +
    geom_point() +
    scale_y_log10() + 
@@ -174,20 +174,20 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad,
 # facet_wrap(~ ColumnName + ColumnName)
 
 # In fact, now you don't even need the colors and shapes.
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) +
    geom_point() +
    scale_y_log10() + 
    facet_grid(SampleSource ~ AnimalId)
 
 # But adding a line doesn't hurt.
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) +
    geom_point() +
    geom_line() +
    scale_y_log10() + 
    facet_grid(SampleSource ~ AnimalId)
 
 # Swapping the order is also interesting: 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) +
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) +
    geom_point() +
    geom_line() +
    scale_y_log10() + 

@@ -22,11 +22,11 @@ library(dplyr)
 #        select(<data frame>, <column names separated by commas>)
 
 # For example: 
-select(zika, Date, DaySinceInfection, ViralLoad)
+select(zika, Date, DaysPostInfection, ViralLoad)
 
 # You can store the result in a new variable and then use the functions from
 # last time to view the results
-datesAndViralLoads <- select(zika, Date, DaySinceInfection, ViralLoad)
+datesAndViralLoads <- select(zika, Date, DaysPostInfection, ViralLoad)
 
 datesAndViralLoads
 
@@ -68,7 +68,7 @@ filter(zika, ViralLoad != 0)
 
 
 
-filter(zika, ViralLoad != 0, DaySinceInfection == 1)
+filter(zika, ViralLoad != 0, DaysPostInfection == 1)
 
 
 # Useful comparison functions -------------------------------------------------

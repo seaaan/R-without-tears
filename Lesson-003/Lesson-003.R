@@ -10,16 +10,16 @@ library(dplyr)
 # Often you want to do more than one thing at a time. 
 
 # For example, you might want to select only the SampleSource and 
-# DaySinceInfection columns and then filter to the rows that contain samples of 
+# DaysPostInfection columns and then filter to the rows that contain samples of 
 # Blood plasma or urine.
-zikaSelected <- select(zika, DaySinceInfection, SampleSource)
+zikaSelected <- select(zika, DaysPostInfection, SampleSource)
 filter(zikaSelected, SampleSource %in% c("Blood plasma", "Urine"))
 
 # written another way: 
-filter(select(zika, DaySinceInfection, SampleSource), SampleSource %in% c("Blood plasma", "Urine"))
+filter(select(zika, DaysPostInfection, SampleSource), SampleSource %in% c("Blood plasma", "Urine"))
 
 # Both ways are pretty annoying and hard to read. Here's a better way: 
-select(zika, DaySinceInfection, SampleSource) %>% 
+select(zika, DaysPostInfection, SampleSource) %>% 
    filter(., SampleSource %in% c("Blood plasma", "Urine"))
 
 # What the %>% says is "take the thing to my left and use it in the thing to my
@@ -34,7 +34,7 @@ zika %>% head(.)
 1:5 %>% mean()
 
 # or 
-select(zika, DaySinceInfection, SampleSource) %>% 
+select(zika, DaysPostInfection, SampleSource) %>% 
    filter(SampleSource %in% c("Blood plasma", "Urine"))
 
 # Try filtering for days above 21 and then select the Date and AnimalId columns:
@@ -46,7 +46,7 @@ select(zika, DaySinceInfection, SampleSource) %>%
 select(zika, -Method) %>% 
    filter(SampleSource == "Urine") %>% 
    select(-SampleSource) %>% 
-   filter(DaySinceInfection > 0) %>% 
+   filter(DaysPostInfection > 0) %>% 
    View()
 
 # Try getting all the columns except for Method and Units and all the rows where 
@@ -64,7 +64,7 @@ summarize(zika, MeanViralLoad = mean(ViralLoad))
 
 summarize(zika, NumberOfRows = n())
 
-summarize(zika, WeirdData = sum(ViralLoad * DaySinceInfection))
+summarize(zika, WeirdData = sum(ViralLoad * DaysPostInfection))
 
 summarize(zika, ViralLoadAbove0 = sum(ViralLoad > 0))
 
@@ -75,7 +75,7 @@ summarize(zika, ViralLoadAbove0 = sum(ViralLoad > 0))
 
 # The function you use always has to produce a single result, so this doesn't 
 # work: 
-summarize(zika, WeirdData = ViralLoad * DaySinceInfection)
+summarize(zika, WeirdData = ViralLoad * DaysPostInfection)
 
 # Summarizing with groups ------------------------------------------------------
 # Summarizing isn't that useful when it can only operate over the whole data
@@ -116,13 +116,13 @@ zika %>%
 # Mean viral load by day, just for blood
 zika %>% 
    filter(SampleSource == "Blood plasma") %>% 
-   group_by(DaySinceInfection) %>% 
+   group_by(DaysPostInfection) %>% 
    summarize(MeanViralLoad = mean(ViralLoad))
 
 # Also take in to account animal
 zika %>% 
    filter(SampleSource == "Blood plasma") %>% 
-   group_by(AnimalId, DaySinceInfection) %>% 
+   group_by(AnimalId, DaysPostInfection) %>% 
    summarize(MeanViralLoad = mean(ViralLoad)) %>% 
    View()
 

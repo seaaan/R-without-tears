@@ -1,4 +1,4 @@
-"Date","DaySinceInfection","AnimalId","SampleSource","ViralLoad","Method","Units"
+"Date","DaysPostInfection","AnimalId","SampleSource","ViralLoad","Method","Units"
 "2/15/2016","0",912116,"Blood plasma",0,"qRT-PCR/Zika_Lanciotti","copies vRNA / ml"
 "2/15/2016","0",912116,"Bladder",0,"qRT-PCR/Zika_Lanciotti","copies vRNA / ml"
 "2/15/2016","0",912116,"Urine",0,"qRT-PCR/Zika_Lanciotti","copies vRNA / ml"

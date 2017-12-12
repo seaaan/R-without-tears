@@ -19,9 +19,9 @@ zika <- mutate(zika, ViralLoad = log10(ViralLoad + 1),
 # ggplot2 can make a huge number of different kinds of graphs.
 
 # Histograms
-ggplot(zika, aes(x = DaySinceInfection)) + geom_histogram()
-ggplot(zika, aes(x = DaySinceInfection)) + geom_density()
-ggplot(zika, aes(x = DaySinceInfection, color = SampleSource)) + geom_density()
+ggplot(zika, aes(x = DaysPostInfection)) + geom_histogram()
+ggplot(zika, aes(x = DaysPostInfection)) + geom_density()
+ggplot(zika, aes(x = DaysPostInfection, color = SampleSource)) + geom_density()
 
 # Categorical plots
 # Most of the viral load measurements are at 0:
@@ -39,16 +39,16 @@ ggplot(non_zero, aes(x = SampleSource, y = ViralLoad)) + geom_boxplot() +
    geom_jitter(width = 0.1)
 
 # Plots with two continuous axes
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) + geom_point() + 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) + geom_point() + 
    geom_smooth() 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) + geom_point() + 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) + geom_point() + 
    geom_line() 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) + geom_hex()
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) + geom_bin2d()
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) + geom_density2d()
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) + geom_hex()
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) + geom_bin2d()
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) + geom_density2d()
 
 # Heatmap
-ggplot(zika, aes(y = SampleSource, x = DaySinceInfection, fill = ViralLoad)) + 
+ggplot(zika, aes(y = SampleSource, x = DaysPostInfection, fill = ViralLoad)) + 
    geom_tile()
 
 # Example: Make a histogram of viral load, but color the bars by sample type. 
@@ -72,29 +72,29 @@ ggplot(zika, aes(y = SampleSource, x = DaySinceInfection, fill = ViralLoad)) +
 # ggplot doesn't always "know" which points go together and should be
 # connected when you add a line. For example, below, the data from all
 # three animals get connected: 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad)) + 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad)) + 
    geom_point() + 
    geom_line() + 
    facet_wrap(~ SampleSource)
 
 # There are several ways to address this. You can map AnimalId to an
 # aesthetic, like shape or color. 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, color = AnimalId)) + 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, color = AnimalId)) + 
    geom_point() + 
    geom_line() + 
    facet_wrap(~ SampleSource)
 
 # If you don't want to change the appearance of graph, you can map AnimalId
 # to an aesthetic called "group"
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, group = AnimalId)) + 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, group = AnimalId)) + 
    geom_point() + 
    geom_line() + 
    facet_wrap(~ SampleSource)
 
 # It's also possible to have multiple calls to the aes() function, with one
 # in ggplot() and others in the geoms. For example, 
-ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, color = SampleSource)) + 
-   geom_point(aes(size = DaySinceInfection)) + 
+ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, color = SampleSource)) + 
+   geom_point(aes(size = DaysPostInfection)) + 
    geom_line(aes(group = AnimalId)) + 
    facet_wrap(~ SampleSource)
 
@@ -120,7 +120,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, color = SampleSource)) +
 # Instead of immediately displaying a plot, it's possible to save it in a 
 # variable and then make further modifications to it. Like creating any
 # variable, you use the <- operator to do this.
-p <- ggplot(zika, aes(x = DaySinceInfection, y = ViralLoad, color = AnimalId)) + 
+p <- ggplot(zika, aes(x = DaysPostInfection, y = ViralLoad, color = AnimalId)) + 
    geom_point() +  
    geom_line() + 
    facet_wrap(~ SampleSource) 
@@ -188,13 +188,13 @@ p + theme(axis.text.y = element_text(size = 20))
 p + scale_color_brewer(type = "qual", palette = "Set1")
 
 # Sequential - for showing data that goes in a single direction
-ggplot(zika, aes(x = DaySinceInfection, y = AnimalId, fill = ViralLoad)) + 
+ggplot(zika, aes(x = DaysPostInfection, y = AnimalId, fill = ViralLoad)) + 
    geom_tile() + facet_wrap(~ SampleSource) + 
    scale_fill_brewer(type = "seq", palette = "PuRd")
 
 # Need to use scale_fill_distiller for continuous, rather than discrete,
 # variables
-ggplot(zika, aes(x = DaySinceInfection, y = AnimalId, fill = ViralLoad)) + 
+ggplot(zika, aes(x = DaysPostInfection, y = AnimalId, fill = ViralLoad)) + 
    geom_tile() + facet_wrap(~ SampleSource) + 
    scale_fill_distiller(type = "seq", palette = "PuBu")
 
@@ -202,7 +202,7 @@ ggplot(zika, aes(x = DaySinceInfection, y = AnimalId, fill = ViralLoad)) +
 new_zika <- zika %>% 
    mutate(RelativeToThree = ViralLoad - 3)
 
-ggplot(new_zika, aes(x = DaySinceInfection, y = RelativeToThree, 
+ggplot(new_zika, aes(x = DaysPostInfection, y = RelativeToThree, 
       color = RelativeToThree)) + 
    geom_point() + geom_line(aes(group = AnimalId)) + 
    facet_wrap(~ SampleSource) + 
